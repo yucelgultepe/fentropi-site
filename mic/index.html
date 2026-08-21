@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fentropi Mic — Kullanım</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <header class="top">
+    <a class="brand" href="/">Fentropi</a>
+    <nav><a href="/">Ana sayfa</a></nav>
+  </header>
+
+  <main class="doc">
+    <h1>Mic nasıl çalışır?</h1>
+
+    <ol class="steps">
+      <li>
+        <strong>Alıcı PC/Mac’te sunucuyu başlat</strong>
+        <p><code>start.ps1</code> (Windows) veya <code>start.sh</code> (Mac). Tarayıcıda alıcı açılır.</p>
+        <p class="note">Bu sekme <em>açık kalmalı</em>. Kapanırsa yayın kesilir. Sunucuyu Ctrl+C ile durdurursan adresler de düşer.</p>
+      </li>
+      <li>
+        <strong>Telefona hangi adresi yazacaksın?</strong>
+        <ul>
+          <li>Aynı Wi‑Fi: <code>http://fentropi.local:8765</code> veya QR</li>
+          <li>Uzaktan / 4G: alıcıdaki HTTPS link — kurulum sonrası tercihen <code>https://mic.fentropi.com</code></li>
+          <li><code>http://127.0.0.1:8765</code> yalnızca alıcı bilgisayarın kendi tarayıcısı içindir; telefonda çalışmaz</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Telefonda FENTROPI → mikrofon</strong>
+        <p>Adres + eşleşme kodu → Bağlan → alıcıda <strong>Kabul et</strong>.</p>
+      </li>
+      <li>
+        <strong>Uygulamalarda mikrofon (isteğe bağlı)</strong>
+        <p>Windows: VB-Cable · Mac: BlackHole. Çıkış sanal kabloya, WhatsApp/REAPER girişte kablo çıkışı.</p>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>fentropi.com</strong> tanıtım ve rehber sitesidir. Ses sunucusu senin bilgisayarındadır; kod + onay olmadan kimse giremez.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p><a href="/">← Fentropi</a></p>
+  </footer>
+</body>
+</html>
