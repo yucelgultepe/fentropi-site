@@ -26,8 +26,10 @@ fentropi.com/gizlilik     → Gizlilik politikası / KVKK
 2. **Uygulama kısa tanımı** — 1–2 cümle: ne yapar, kimin için?
 3. **Ekran görüntüleri** — 2–4 adet telefon ekran görüntüsü (varsa)
 4. **Müzikler** — dosya/link (YouTube, Spotify vb.) ve kısa açıklamalar
-5. **Makaleler** — metinler (Drive'daki `fentropi_ham_veri.md` içindekiler
-   uygunsa oradan alınabilir — bağlayıcı düzelince okuyacağım)
+5. ~~**Makaleler**~~ ✓ Yapıldı — Medium'daki 45 yazı `makaleler.html`
+   taslağına işlendi (arama + kategori filtresi + kapak görselleri).
+   Yeni yazı çıkınca listenin başına tek satır eklemek yeterli
+   (dosyanın başındaki yorumda anlatılıyor).
 6. **İletişim e-postası** — sitede görünmesini istediğin adres
    (örn. info@fentropi.com; GoDaddy e-posta yönlendirme kurulabilir)
 7. **Sosyal medya** — varsa bağlantılar

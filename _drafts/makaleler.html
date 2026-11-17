@@ -4,16 +4,20 @@
   <!--
     TASLAK — YAYINLANMAZ (bu dosya _drafts/ içinde).
     Yayına geçerken: makaleler/index.html olarak taşı.
-    TODO: Makale listesi eklenecek. Drive'daki fentropi_ham_veri.md
-    okunduktan sonra uygun yazılar buraya işlenebilir.
-    Her makale ya bu sayfada özet + link olarak durur ya da
-    makaleler/<yazi-adi>.html olarak ayrı sayfa açılır.
+
+    NASIL GÜNCELLENİR?
+    Yeni bir Medium yazısı çıkınca aşağıdaki ARTICLES listesinin başına
+    tek satır eklenir:
+      { t: "Yazı başlığı", u: "https://medium.com/@fentropi/...", c: "Kategori" },
+    Kategoriler: Kitap & Edebiyat · Din & Felsefe · Psikoloji & Zihin ·
+    Sinema · Otomobil · Ekonomi & Pazarlama · Toplum & Medya · Bilim · Deneme
+    (Opsiyonel: x: "kısa özet", img: "kapak görseli URL'si")
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fentropi — Makaleler</title>
   <meta name="robots" content="noindex" />
-  <meta name="description" content="Fentropi — makaleler ve yazılar." />
+  <meta name="description" content="Fentropi'nin Medium'da yayımlanan makaleleri." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -24,19 +28,40 @@
     .bg { position:fixed; inset:0; z-index:-1;
       background: radial-gradient(ellipse 70% 50% at 15% 0%, rgba(111,191,154,.18), transparent 55%),
                   radial-gradient(ellipse 50% 40% at 100% 80%, rgba(40,70,55,.45), transparent 50%), var(--bg); }
-    .top { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; max-width:980px; margin:0 auto; }
+    .top { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; max-width:1040px; margin:0 auto; }
     .brand { font-family:Syne,sans-serif; font-weight:800; font-size:1.25rem; letter-spacing:-.03em; color:var(--ink); text-decoration:none; }
     nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:.95rem; }
     nav a:hover { color:var(--accent); }
-    .doc { max-width:720px; margin:0 auto; padding:32px 24px 64px; }
-    .doc h1 { font-family:Syne,sans-serif; font-size:clamp(1.8rem,4vw,2.4rem); letter-spacing:-.03em; margin:0 0 24px; }
-    .posts { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px; }
-    .posts li { border:1px solid var(--line); border-radius:16px; padding:16px 18px; background:rgba(255,255,255,.02); }
-    .posts strong { display:block; margin-bottom:4px; }
-    .posts time { color:var(--muted); font-size:.85rem; }
-    .posts p { margin:6px 0 0; color:var(--muted); line-height:1.45; font-size:.95rem; }
-    .posts a { color:var(--accent); text-decoration:none; font-weight:600; }
-    footer { max-width:980px; margin:0 auto; padding:24px; color:var(--muted); font-size:.88rem; }
+    .wrap { max-width:1040px; margin:0 auto; padding:24px 24px 64px; }
+    h1 { font-family:Syne,sans-serif; font-size:clamp(1.9rem,4.5vw,2.6rem); letter-spacing:-.03em; margin:8px 0 8px; }
+    .sub { color:var(--muted); margin:0 0 20px; line-height:1.5; }
+    .sub a { color:var(--accent); text-decoration:none; font-weight:600; }
+    .toolbar { position:sticky; top:0; z-index:5; padding:12px 0; background:linear-gradient(var(--bg) 70%, transparent); }
+    #q { width:100%; padding:13px 16px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03);
+         color:var(--ink); font:inherit; font-size:1rem; outline:none; }
+    #q:focus { border-color:var(--accent); }
+    #q::placeholder { color:var(--muted); }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip { border:1px solid var(--line); background:rgba(255,255,255,.02); color:var(--muted); border-radius:999px;
+            padding:7px 13px; font:inherit; font-size:.85rem; font-weight:600; cursor:pointer; }
+    .chip:hover { color:var(--ink); }
+    .chip.on { background:var(--accent); border-color:transparent; color:var(--accent-ink); }
+    .count { color:var(--muted); font-size:.88rem; margin:14px 2px 0; }
+    .cards { list-style:none; margin:14px 0 0; padding:0; display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
+    .card a { display:flex; gap:14px; align-items:flex-start; height:100%; border:1px solid var(--line); border-radius:16px;
+              padding:14px; background:rgba(255,255,255,.02); text-decoration:none; color:inherit; transition:border-color .15s; }
+    .card a:hover { border-color:var(--accent); }
+    .thumb { flex:0 0 56px; width:56px; height:56px; border-radius:12px; overflow:hidden;
+             background:var(--accent); color:var(--accent-ink); display:grid; place-items:center;
+             font-family:Syne,sans-serif; font-weight:800; font-size:1.4rem; }
+    .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .body { min-width:0; }
+    .cat { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+           color:var(--accent); margin-bottom:5px; }
+    .body strong { display:block; font-size:.98rem; line-height:1.35; letter-spacing:-.01em; }
+    .body .x { display:block; color:var(--muted); font-size:.87rem; line-height:1.45; margin-top:5px; }
+    .empty { display:none; color:var(--muted); padding:32px 0; text-align:center; }
+    footer { max-width:1040px; margin:0 auto; padding:24px; color:var(--muted); font-size:.88rem; }
     footer a { color:var(--accent); text-decoration:none; }
   </style>
 </head>
@@ -47,25 +72,135 @@
     <nav><a href="/">Ana sayfa</a></nav>
   </header>
 
-  <main class="doc">
+  <main class="wrap">
     <h1>Makaleler</h1>
-    <ul class="posts">
-      <!-- TODO: Her yazı için bir <li> kopyala:
-      <li>
-        <strong><a href="/makaleler/yazi-adi">Yazı başlığı</a></strong>
-        <time datetime="2026-01-01">1 Ocak 2026</time>
-        <p>Kısa özet (1-2 cümle).</p>
-      </li>
-      -->
-      <li>
-        <strong>Örnek yazı</strong>
-        <p>Bu alan makale listesiyle doldurulacak.</p>
-      </li>
-    </ul>
+    <p class="sub">
+      Yazılar Medium'da barındırılır; bir karta tıklayınca yazı Medium'da açılır.
+      <a href="https://medium.com/@fentropi" target="_blank" rel="noopener">Medium profili →</a>
+    </p>
+
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Yazılarda ara…" autocomplete="off" />
+      <div class="chips" id="chips"></div>
+      <p class="count" id="count"></p>
+    </div>
+
+    <ul class="cards" id="cards"></ul>
+    <p class="empty" id="empty">Aramayla eşleşen yazı bulunamadı.</p>
+
+    <noscript>
+      <p class="sub">Bu sayfadaki liste JavaScript ile gösteriliyor. Tüm yazılar için:
+      <a href="https://medium.com/@fentropi">medium.com/@fentropi</a></p>
+    </noscript>
   </main>
 
   <footer>
     <p><a href="/">← Fentropi</a></p>
   </footer>
+
+  <script>
+    // ————— YAZI LİSTESİ (yeni yazı = listenin başına tek satır) —————
+    const ARTICLES = [
+      { t: "Kürk Mantolu Madonna üzerine bir okuma", u: "https://medium.com/@fentropi/k%C3%BCrk-mantolu-madonna-%C3%BCzerine-bir-okuma-c812bb703e11", c: "Kitap & Edebiyat", x: "Sabahattin Ali, Kürk Mantolu Madonna, Yapı Kredi Yayınları — roman üzerine notlar.", img: "https://miro.medium.com/v2/resize:fill:320:214/1*8J1k9vwcLzvOHnGhibTwRw.jpeg" },
+      { t: "Ekşi Sözlükteki Kur'an'ın insan yapısı olduğunun delilleri 3/3 — Zor Dosyalar", u: "https://medium.com/@fentropi/ek%C5%9Fi-s%C3%B6zl%C3%BCkteki-kuran-%C4%B1n-insan-yap%C4%B1s%C4%B1-oldu%C4%9Funun-delilleri-3-3-zor-dosyalar-70a17253acc2", c: "Din & Felsefe", x: "On bir dosya tek tek: hangisi metinde, hangisi haberde, hangisi yorumda duruyor, hangisi hiçbirinde durmuyor.", img: "https://miro.medium.com/v2/resize:fill:320:214/1*N8aW6hJZ23RvY9DakbVOKg.jpeg" },
+      { t: "Ekşi Sözlükteki Kur'an'ın insan yapısı olduğunun delilleri 2/3 — Ayeti Hangi Rafa Koyuyoruz?", u: "https://medium.com/@fentropi/ek%C5%9Fi-s%C3%B6zl%C3%BCkteki-kuran-%C4%B1n-insan-yap%C4%B1s%C4%B1-oldu%C4%9Funun-delilleri-2-3-ayeti-hangi-rafa-koyuyoruz-da060be3f9cc", c: "Din & Felsefe", x: "İtirazların çoğu ayette değil, ayete giydirilen cümlede duruyor. Dört hata tipi var.", img: "https://miro.medium.com/v2/resize:fill:320:214/1*YjYNui3lOHBF-Bl6KDblaQ.jpeg" },
+      { t: "Ekşi Sözlükteki Kur'an'ın insan yapısı olduğunun delilleri 1/3 — \u201cDelil\u201d Diye Sunulan Cümle Hangi\u2026", u: "https://medium.com/@fentropi/ek%C5%9Fi-s%C3%B6zl%C3%BCkteki-kuran-%C4%B1n-insan-yap%C4%B1s%C4%B1-oldu%C4%9Funun-delilleri-1-3-delil-diye-sunulan-c%C3%BCmle-hangi-5e0043fa12c1", c: "Din & Felsefe", x: "Rivayetin kayıtlı olması doğru olduğunu göstermez. İtiraz eden ayeti hedef alıyor, itiraz ayete eklenen söze çarpıyor.", img: "https://miro.medium.com/v2/resize:fill:320:214/1*U_ck3gByRqt9dhRuo5P75g.jpeg" },
+      { t: "Kürk Mantolu Madonna İngiltere'de nasıl bestseller oldu", u: "https://medium.com/@fentropi/k%C3%BCrk-mantolu-madonna-i%CC%87ngilterede-nas%C4%B1l-bestseller-oldu-83ec553c4994", c: "Kitap & Edebiyat", x: "30 bin rakamı Penguin Classics için doğru. Telif takvimi, rafta görünürlük ve sosyal medya sayıyı taşıdı.", img: "https://miro.medium.com/v2/resize:fill:320:214/1*g2giZN_v-d7s8a2Ad7uVAQ.jpeg" },
+      { t: "BMW M5 CS ile M5 Competition — Aynı otomobilin dört ayrı ölçüsü", u: "https://medium.com/@fentropi/bmw-m5-cs-ile-m5-competition-ayn%C4%B1-otomobilin-d%C3%B6rt-ayr%C4%B1-%C3%B6l%C3%A7%C3%BCs%C3%BC-bf34561ae692", c: "Otomobil", x: "Beyan, test, tur ve fiyat aynı soruya cevap vermez; uyuşmazlık arabadan değil koordinattan gelir.", img: "https://miro.medium.com/v2/resize:fill:320:214/1*Tn0dVaQsDjaGRH4jEflz9w.jpeg" },
+      { t: "Tek başına tatmin: Stresi çözer mi, hayatın yerini mi alır?", u: "https://medium.com/@fentropi/tek-ba%C5%9F%C4%B1na-tatmin-stresi-%C3%A7%C3%B6zer-mi-hayat%C4%B1n-yerini-mi-al%C4%B1r-1c8ffeba26ae", c: "Psikoloji & Zihin" },
+      { t: "İki yüzük, tek mesele", u: "https://medium.com/@fentropi/i%CC%87ki-y%C3%BCz%C3%BCk-tek-mesele-089b75e68a50", c: "Deneme" },
+      { t: "Allah ile pazarlık", u: "https://medium.com/@fentropi/allah-ile-pazarl%C4%B1k-03e58c868c93", c: "Din & Felsefe" },
+      { t: "Aşk bir hastalık mı, yoksa yanlış kelimeyle kurulmuş bir soru mu?", u: "https://medium.com/@fentropi/a%C5%9Fk-bir-hastal%C4%B1k-m%C4%B1-yoksa-yanl%C4%B1%C5%9F-kelimeyle-kurulmu%C5%9F-bir-soru-mu-2d2424314f74", c: "Psikoloji & Zihin" },
+      { t: "El Plasebo", u: "https://medium.com/@fentropi/el-plasebo-2df213ab6c7e", c: "Psikoloji & Zihin" },
+      { t: "Mesnevî'de insan: Nefis, irade ve ilâhî hidayet", u: "https://medium.com/@fentropi/mesnev%C3%AEde-i%CC%87nsan-nefis-i%CC%87rade-ve-i%CC%87l%C3%A2h%C3%AE-hidayet-740c21800060", c: "Din & Felsefe" },
+      { t: "Mercedes GLB ve alternatifleri hakkında gerçekler", u: "https://medium.com/@fentropi/mercedes-glb-ve-alternatifleri-hakk%C4%B1nda-ger%C3%A7ekler-994b61f296ec", c: "Otomobil" },
+      { t: "Canın açlığı: Mesnevî'de erteleme, vakit ve mühlet", u: "https://medium.com/@fentropi/can%C4%B1n-a%C3%A7l%C4%B1%C4%9F%C4%B1-mesnev%C3%AE-de-erteleme-vakit-ve-m%C3%BChlet-8541a14d407b", c: "Din & Felsefe" },
+      { t: "Ateist imam", u: "https://medium.com/@fentropi/ateist-i%CC%87mam-005015916637", c: "Din & Felsefe" },
+      { t: "Emofili", u: "https://medium.com/@fentropi/emofili-c628da0dfda6", c: "Deneme" },
+      { t: "Mucize avcılığı ile bilimsel inkâr arasında: Embriyoloji ayetlerini nasıl okumalıyız?", u: "https://medium.com/@fentropi/mucize-avc%C4%B1l%C4%B1%C4%9F%C4%B1-ile-bilimsel-i%CC%87nk%C3%A2r-aras%C4%B1nda-embriyoloji-ayetlerini-nas%C4%B1l-okumal%C4%B1y%C4%B1z-07a79c8bacee", c: "Din & Felsefe" },
+      { t: "Inception: Suçun adını değiştiren film", u: "https://medium.com/@fentropi/inception-su%C3%A7un-ad%C4%B1n%C4%B1-de%C4%9Fi%C5%9Ftiren-film-c2b9a68951e2", c: "Sinema" },
+      { t: "Nobel ödüllü bir beyin bilimci Tanrı'yı kanıtlar mı?", u: "https://medium.com/@fentropi/nobel-%C3%B6d%C3%BCll%C3%BC-bir-beyin-bilimci-tanr%C4%B1y%C4%B1-kan%C4%B1tlar-m%C4%B1-6230be397c8b", c: "Din & Felsefe" },
+      { t: "Gazali'den Navier-Stokes problemine", u: "https://medium.com/@fentropi/gazaliden-navier-stokes-problemine-2d2bcf868266", c: "Bilim" },
+      { t: "Kuran 1400 yıl önce yapay zekâyı mı haber verdi?", u: "https://medium.com/@fentropi/kuran-1400-y%C4%B1l-%C3%B6nce-yapay-zekay%C4%B1-m%C4%B1-haber-verdi-e512bf7f970e", c: "Din & Felsefe" },
+      { t: "Sessizlik her zaman aynı sessizlik değil", u: "https://medium.com/@fentropi/sessizlik-her-zaman-ayn%C4%B1-sessizlik-de%C4%9Fil-2b986242be79", c: "Psikoloji & Zihin" },
+      { t: "Pazarlamayı dışsallaştırmak: Apple'ın reklam faturasını dünyaya ödetme sanatı", u: "https://medium.com/@fentropi/pazarlamay%C4%B1-d%C4%B1%C5%9Fsalla%C5%9Ft%C4%B1rmak-apple%C4%B1n-reklam-faturas%C4%B1n%C4%B1-d%C3%BCnyaya-%C3%B6detme-sanat%C4%B1-17fea7578807", c: "Ekonomi & Pazarlama" },
+      { t: "IMDb Top 250'den sinema dersi: En iyi filmler listesi aslında neyin aynası?", u: "https://medium.com/@fentropi/imdb-top-250den-sinema-dersi-en-i%CC%87yi-filmler-listesi-asl%C4%B1nda-neyin-aynas%C4%B1-81a51d02daea", c: "Sinema" },
+      { t: "Hayal ettiklerini anında gerçekleştirebilenlerin diyarında anayasa nasıl olmalıdır?", u: "https://medium.com/@fentropi/hayal-ettiklerini-an%C4%B1nda-ger%C3%A7ekle%C5%9Ftirebilenlerin-diyar%C4%B1nda-anayasa-nas%C4%B1l-olmal%C4%B1d%C4%B1r-5262691e239a", c: "Toplum & Medya" },
+      { t: "Yarım hayaller nasıl tamamlanır?", u: "https://medium.com/@fentropi/yar%C4%B1m-hayaller-nas%C4%B1l-tamamlan%C4%B1r-4d120dd5305a", c: "Psikoloji & Zihin" },
+      { t: "Kürsü illüzyonu: Neden yapmak yerine anlatmayı seçiyoruz?", u: "https://medium.com/@fentropi/k%C3%BCrs%C3%BC-i%CC%87ll%C3%BCzyonu-neden-yapmak-yerine-anlatmay%C4%B1-se%C3%A7iyoruz-8630102aa3a6", c: "Psikoloji & Zihin" },
+      { t: "Oppenheimer: Çok iyi yapılmış bir film — peki neyi göstermiyor?", u: "https://medium.com/@fentropi/oppenheimer-%C3%A7ok-i%CC%87yi-yap%C4%B1lm%C4%B1%C5%9F-bir-film-peki-neyi-g%C3%B6stermiyor-61917d1bb783", c: "Sinema" },
+      { t: "Aceleciliğin doğurduğu felç: Erteleme hastalığı, duygu onarımı ve dağıtılan sabrın anatomisi", u: "https://medium.com/@fentropi/acelecili%C4%9Fin-do%C4%9Furdu%C4%9Fu-fel%C3%A7-erteleme-hastal%C4%B1%C4%9F%C4%B1-duygu-onar%C4%B1m%C4%B1-ve-da%C4%9F%C4%B1t%C4%B1lan-sabr%C4%B1n-anatomisi-50c494be2977", c: "Psikoloji & Zihin" },
+      { t: "Hayatın anlamı", u: "https://medium.com/@fentropi/hayat%C4%B1n-anlam%C4%B1-ef2c49073b1f", c: "Psikoloji & Zihin" },
+      { t: "Barbie: Postmodern ve pembe bir Truman Show vakası", u: "https://medium.com/@fentropi/barbie-postmodern-ve-pembe-bir-truman-show-vakas%C4%B1-f1b541646219", c: "Sinema" },
+      { t: "Yaşamak bana şu an ne kadar yakışıyor?", u: "https://medium.com/@fentropi/ya%C5%9Famak-bana-%C5%9Fu-an-ne-kadar-yak%C4%B1%C5%9F%C4%B1yor-f71bc0bc11fa", c: "Psikoloji & Zihin" },
+      { t: "10.000 saat yanılgısı: Bir mitin anatomisi", u: "https://medium.com/@fentropi/10-000-saat-yan%C4%B1lg%C4%B1s%C4%B1-bir-mitin-anatomisi-755298be8e9c", c: "Psikoloji & Zihin" },
+      { t: "Karar mekanizmasının anatomisi: Başlatıcı, filtre ve sorumluluğun gerçek metriği", u: "https://medium.com/@fentropi/karar-mekanizmas%C4%B1n%C4%B1n-anatomisi-ba%C5%9Flat%C4%B1c%C4%B1-filtre-ve-sorumlulu%C4%9Fun-ger%C3%A7ek-metri%C4%9Fi-63db05e1a02d", c: "Psikoloji & Zihin" },
+      { t: "Metakognitif mastürbasyon", u: "https://medium.com/@fentropi/metakognitif-mast%C3%BCrbasyon-ec7ec683dc2e", c: "Psikoloji & Zihin" },
+      { t: "Ekonomik kriz sinyallerini okuma rehberi", u: "https://medium.com/@fentropi/ekonomik-kriz-sinyallerini-okuma-rehberi-4fced7fa273f", c: "Ekonomi & Pazarlama" },
+      { t: "İnsan zihni ve bilim: Görünmeyeni nasıl ölçer?", u: "https://medium.com/@fentropi/i%CC%87nsan-zihni-ve-bilim-g%C3%B6r%C3%BCnmeyeni-nas%C4%B1l-%C3%B6l%C3%A7er-e0e828d111eb", c: "Bilim" },
+      { t: "Ekonomik gölgeler ve uydurma analitik: Makroekonomik veriler çeliştiğinde ne yapmalıyız?", u: "https://medium.com/@fentropi/ekonomik-g%C3%B6lgeler-ve-uydurma-analitik-makroekonomik-veriler-%C3%A7eli%C5%9Fti%C4%9Finde-ne-yapmal%C4%B1y%C4%B1z-df44e2318797", c: "Ekonomi & Pazarlama" },
+      { t: "Amigdalanın gaspı: Neden önce kavga eder, sonra gülerek anlatırız?", u: "https://medium.com/@fentropi/amigdalan%C4%B1n-gasp%C4%B1-neden-%C3%B6nce-kavga-eder-sonra-g%C3%BClerek-anlat%C4%B1r%C4%B1z-9bf9e7f2ed84", c: "Psikoloji & Zihin" },
+      { t: "Dikkatin mimarisi: Bakışın nörobiyolojisi, anlamın inşası ve iradenin savunması", u: "https://medium.com/@fentropi/dikkatin-mimarisi-bak%C4%B1%C5%9F%C4%B1n-n%C3%B6robiyolojisi-anlam%C4%B1n-i%CC%87n%C5%9Fas%C4%B1-ve-i%CC%87radenin-savunmas%C4%B1-ce0b290e4a8f", c: "Psikoloji & Zihin" },
+      { t: "33 yaşında erken ölüm beklentisi: Terhis yanılgısının dekonstrüksiyonu ve zihnin kara kutusu", u: "https://medium.com/@fentropi/33-ya%C5%9F%C4%B1nda-erken-%C3%B6l%C3%BCm-beklentisi-terhis-yan%C4%B1lg%C4%B1s%C4%B1n%C4%B1n-dekonstr%C3%BCksiyonu-ve-zihnin-kara-kutu-c26648e3b22b", c: "Psikoloji & Zihin" },
+      { t: "Bir insan neden denizin sonsuzluğunda değil de dağların sessizliğinde eve dönmüş gibi hisseder?", u: "https://medium.com/@fentropi/bir-i%CC%87nsan-neden-denizin-sonsuzlu%C4%9Funda-de%C4%9Fil-de-da%C4%9Flar%C4%B1n-sessizli%C4%9Finde-eve-d%C3%B6nm%C3%BC%C5%9F-gibi-hisseder-bcd8330a771d", c: "Psikoloji & Zihin" },
+      { t: "Neden hep yalan söylüyoruz? Hakikatten kaçışın, kendini kandırmanın ve sübjektif doğruların\u2026", u: "https://medium.com/@fentropi/neden-hep-yalan-s%C3%B6yl%C3%BCyoruz-hakikatten-ka%C3%A7%C4%B1%C5%9F%C4%B1n-kendini-kand%C4%B1rman%C4%B1n-ve-s%C3%BCbjektif-do%C4%9Frular%C4%B1n-9e341be04b94", c: "Psikoloji & Zihin" },
+      { t: "Dürüst bir tamirci veya muhalif bir komedyen devleti yönetebilir mi?", u: "https://medium.com/@fentropi/d%C3%BCr%C3%BCst-bir-tamirci-veya-muhalif-bir-komedyen-devleti-y%C3%B6netebilir-mi-123b65a70c37", c: "Toplum & Medya" },
+      { t: "Haber değeri neydi, ne oldu?", u: "https://medium.com/@fentropi/haber-de%C4%9Feri-neydi-ne-oldu-a6f37acd8a7e", c: "Toplum & Medya" }
+    ];
+
+    // ————— Listeleyici —————
+    const cardsEl = document.getElementById("cards");
+    const chipsEl = document.getElementById("chips");
+    const qEl = document.getElementById("q");
+    const countEl = document.getElementById("count");
+    const emptyEl = document.getElementById("empty");
+    let activeCat = "Tümü";
+
+    const cats = ["Tümü", ...new Set(ARTICLES.map(a => a.c))];
+    const trLower = s => s.toLocaleLowerCase("tr");
+
+    function renderChips() {
+      chipsEl.innerHTML = "";
+      for (const c of cats) {
+        const b = document.createElement("button");
+        const n = c === "Tümü" ? ARTICLES.length : ARTICLES.filter(a => a.c === c).length;
+        b.className = "chip" + (c === activeCat ? " on" : "");
+        b.textContent = c + " (" + n + ")";
+        b.onclick = () => { activeCat = c; renderChips(); renderCards(); };
+        chipsEl.appendChild(b);
+      }
+    }
+
+    function renderCards() {
+      const q = trLower(qEl.value.trim());
+      cardsEl.innerHTML = "";
+      let shown = 0;
+      for (const a of ARTICLES) {
+        if (activeCat !== "Tümü" && a.c !== activeCat) continue;
+        const hay = trLower(a.t + " " + (a.x || "") + " " + a.c);
+        if (q && !hay.includes(q)) continue;
+        shown++;
+        const thumb = a.img
+          ? '<span class="thumb"><img loading="lazy" src="' + a.img + '" alt="" /></span>'
+          : '<span class="thumb" aria-hidden="true">' + a.t.trim().charAt(0).toLocaleUpperCase("tr") + "</span>";
+        const li = document.createElement("li");
+        li.className = "card";
+        li.innerHTML =
+          '<a href="' + a.u + '" target="_blank" rel="noopener">' +
+          thumb +
+          '<span class="body"><span class="cat">' + a.c + "</span>" +
+          "<strong>" + a.t + "</strong>" +
+          (a.x ? '<span class="x">' + a.x + "</span>" : "") +
+          "</span></a>";
+        cardsEl.appendChild(li);
+      }
+      countEl.textContent = shown + " yazı";
+      emptyEl.style.display = shown ? "none" : "block";
+    }
+
+    qEl.addEventListener("input", renderCards);
+    renderChips();
+    renderCards();
+  </script>
 </body>
 </html>
