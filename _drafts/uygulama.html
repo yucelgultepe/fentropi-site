@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <!--
+    TASLAK — YAYINLANMAZ (bu dosya _drafts/ içinde).
+    Yayına geçerken: uygulama/index.html olarak taşı.
+    TODO: Play Store linki (aşağıda href="#" olan yer), uygulama tanımı,
+    özellik listesi ve ekran görüntüleri eklenecek.
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fentropi — Android Uygulaması</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Fentropi Android uygulaması — Google Play'de." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#0c0f0e; --ink:#eef3ef; --muted:#8a968e; --line:rgba(255,255,255,.08); --accent:#6fbf9a; --accent-ink:#062117; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100dvh; font-family:"DM Sans",system-ui,sans-serif; color:var(--ink); background:var(--bg); }
+    .bg { position:fixed; inset:0; z-index:-1;
+      background: radial-gradient(ellipse 70% 50% at 15% 0%, rgba(111,191,154,.18), transparent 55%),
+                  radial-gradient(ellipse 50% 40% at 100% 80%, rgba(40,70,55,.45), transparent 50%), var(--bg); }
+    .top { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; max-width:980px; margin:0 auto; }
+    .brand { font-family:Syne,sans-serif; font-weight:800; font-size:1.25rem; letter-spacing:-.03em; color:var(--ink); text-decoration:none; }
+    nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:.95rem; }
+    nav a:hover { color:var(--accent); }
+    .hero { max-width:980px; margin:0 auto; padding:48px 24px 32px; }
+    .eyebrow { color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; margin:0 0 14px; }
+    .hero h1 { font-family:Syne,sans-serif; font-weight:800; font-size:clamp(2.2rem,5vw,3.2rem); letter-spacing:-.04em; line-height:1.05; margin:0 0 18px; }
+    .lede { max-width:34rem; color:var(--muted); font-size:1.1rem; line-height:1.55; margin:0 0 28px; }
+    .btn { display:inline-flex; align-items:center; padding:14px 20px; border-radius:12px; font-weight:700; text-decoration:none; border:1px solid var(--line); }
+    .btn.primary { background:var(--accent); color:var(--accent-ink); border-color:transparent; }
+    .features { max-width:980px; margin:0 auto 48px; padding:0 24px; display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .features div { border:1px solid var(--line); border-radius:16px; padding:18px; background:rgba(255,255,255,.02); }
+    .features h2 { font-family:Syne,sans-serif; font-size:1.05rem; margin:0 0 8px; }
+    .features p { margin:0; color:var(--muted); line-height:1.45; font-size:.95rem; }
+    footer { max-width:980px; margin:0 auto; padding:24px; color:var(--muted); font-size:.88rem; }
+    footer a { color:var(--accent); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <header class="top">
+    <a class="brand" href="/">Fentropi</a>
+    <nav><a href="/">Ana sayfa</a></nav>
+  </header>
+
+  <main class="hero">
+    <p class="eyebrow">Android Uygulaması</p>
+    <h1>Fentropi</h1>
+    <p class="lede">
+      <!-- TODO: Uygulamanın 1-2 cümlelik tanımı (Play Store açıklamasından alınabilir) -->
+      Uygulama tanımı buraya gelecek.
+    </p>
+    <!-- TODO: href="#" yerine Play Store bağlantısı:
+         https://play.google.com/store/apps/details?id=PAKET_ADI -->
+    <a class="btn primary" href="#" rel="noopener">Google Play'den indir</a>
+  </main>
+
+  <section class="features">
+    <!-- TODO: Gerçek özelliklerle değiştirilecek (3-4 kart yeterli) -->
+    <div><h2>Özellik 1</h2><p>Açıklama buraya.</p></div>
+    <div><h2>Özellik 2</h2><p>Açıklama buraya.</p></div>
+    <div><h2>Özellik 3</h2><p>Açıklama buraya.</p></div>
+  </section>
+
+  <footer>
+    <p>© Fentropi · <a href="/gizlilik">Gizlilik</a></p>
+  </footer>
+</body>
+</html>

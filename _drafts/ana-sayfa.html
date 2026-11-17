@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <!--
+    TASLAK — YAYINLANMAZ (bu dosya _drafts/ içinde).
+    Yayına geçerken: bu dosyayı köke taşı (index.html olarak),
+    <meta name="robots" content="noindex"> satırını kaldır.
+    TODO: Play Store bağlantısı, müzik ve makale listeleri eklenecek.
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fentropi</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Fentropi — uygulama, müzik ve yazılar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#0c0f0e; --ink:#eef3ef; --muted:#8a968e; --line:rgba(255,255,255,.08); --accent:#6fbf9a; --accent-ink:#062117; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100dvh; font-family:"DM Sans",system-ui,sans-serif; color:var(--ink); background:var(--bg); }
+    .bg { position:fixed; inset:0; z-index:-1;
+      background: radial-gradient(ellipse 70% 50% at 15% 0%, rgba(111,191,154,.18), transparent 55%),
+                  radial-gradient(ellipse 50% 40% at 100% 80%, rgba(40,70,55,.45), transparent 50%), var(--bg); }
+    .top { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; max-width:980px; margin:0 auto; }
+    .brand { font-family:Syne,sans-serif; font-weight:800; font-size:1.25rem; letter-spacing:-.03em; color:var(--ink); text-decoration:none; }
+    nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:.95rem; margin-left:18px; }
+    nav a:hover { color:var(--accent); }
+    .hero { max-width:980px; margin:0 auto; padding:64px 24px 48px; }
+    .hero h1 { font-family:Syne,sans-serif; font-weight:800; font-size:clamp(2.4rem,6vw,3.6rem); letter-spacing:-.04em; line-height:1.05; margin:0 0 18px; }
+    .lede { max-width:34rem; color:var(--muted); font-size:1.1rem; line-height:1.55; margin:0 0 28px; }
+    .grid { max-width:980px; margin:0 auto 48px; padding:0 24px; display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .card { display:block; border:1px solid var(--line); border-radius:16px; padding:18px; background:rgba(255,255,255,.02); text-decoration:none; color:inherit; }
+    .card:hover { border-color:var(--accent); }
+    .card h2 { font-family:Syne,sans-serif; font-size:1.05rem; margin:0 0 8px; }
+    .card p { margin:0; color:var(--muted); line-height:1.45; font-size:.95rem; }
+    footer { max-width:980px; margin:0 auto; padding:24px; color:var(--muted); font-size:.88rem; }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <header class="top">
+    <a class="brand" href="/">Fentropi</a>
+    <nav>
+      <a href="/uygulama">Uygulama</a>
+      <a href="/muzik">Müzik</a>
+      <a href="/makaleler">Makaleler</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h1>Fentropi</h1>
+    <p class="lede">
+      Uygulama, müzik ve yazılar — hepsi tek çatı altında.
+      <!-- TODO: 1-2 cümlelik marka tanıtımı buraya (senden onay alınacak) -->
+    </p>
+  </main>
+
+  <section class="grid">
+    <a class="card" href="/uygulama">
+      <h2>Uygulama</h2>
+      <p>Fentropi Android uygulaması — Google Play'de. <!-- TODO: kısa tanım --></p>
+    </a>
+    <a class="card" href="/muzik">
+      <h2>Müzik</h2>
+      <p>Müzik çalışmaları. <!-- TODO: açıklama --></p>
+    </a>
+    <a class="card" href="/makaleler">
+      <h2>Makaleler</h2>
+      <p>Yazılar ve makaleler. <!-- TODO: açıklama --></p>
+    </a>
+    <a class="card" href="/mic/">
+      <h2>Fentropi Mic</h2>
+      <p>Telefon mikrofonunu bilgisayara aktaran araç — kullanım rehberi.</p>
+    </a>
+  </section>
+
+  <footer>
+    <p>© Fentropi · <a href="/gizlilik" style="color:var(--accent);text-decoration:none">Gizlilik</a></p>
+  </footer>
+</body>
+</html>
