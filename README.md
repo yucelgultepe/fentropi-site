@@ -40,7 +40,8 @@ DNS yayılması 5 dk – birkaç saat sürebilir.
 ### 3) Yayın öncesi son adımlar
 
 1. Yayınlanacak taslakları `_drafts/` içinden köke taşı.
-2. Ana sayfadaki `<meta name="robots" content="noindex">` satırını kaldır.
+2. Taşınan taslak sayfalardaki `<meta name="robots" content="noindex">`
+   satırlarını kaldır. (Ana sayfa zaten Google'da görünebilir durumda.)
 
 ## Adresler (yayın sonrası)
 

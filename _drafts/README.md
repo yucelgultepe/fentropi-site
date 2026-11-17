@@ -33,4 +33,5 @@ Taslaklardaki `TODO:` işaretleri, senden bilgi/onay gereken yerleri gösterir.
 2. GitHub → repo → Settings → Pages → Source: `main` / root seçilir.
 3. Custom domain: `fentropi.com` yazılır, kaydedilir (CNAME dosyası zaten var).
 4. DNS oturunca "Enforce HTTPS" açılır.
-5. Ana sayfadaki `noindex` etiketi kaldırılır.
+5. Yayına taşınan taslak sayfalardaki `noindex` etiketleri kaldırılır.
+   (Kök sayfada artık noindex yok — Google'da görünebilir.)
